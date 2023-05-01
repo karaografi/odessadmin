@@ -10,7 +10,6 @@ const Topbar = ({ showNav, setShowNav }) => {
         <div className="flex items-center py-3">
 
           {/* Hamburger Menu */}
-          {/* onClick={() => toggleSidebar(true)} */}
           <button className="text-gray-600 lg:hidden" onClick={() => setShowNav(true)}>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
               <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -73,7 +72,6 @@ const Topbar = ({ showNav, setShowNav }) => {
         </div>
 
         <div className="flex items-center">
-          <button className="pl-2 pr-4 py-2 text-white rounded-md text-sm font-medium bg-gray-900 hover:bg-gray-800">Complete Sprint</button>
           <button className="flex pl-2 pr-4 py-2 ml-5 font-medium text-sm text-white hover:from-purple-600 hover:to-blue-400  rounded-md bg-gradient-to-r from-purple-700 to-blue-500 items-center">
 
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">

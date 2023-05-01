@@ -1,8 +1,40 @@
 import React, { forwardRef } from "react";
 import { NavLink } from 'react-router-dom';
+import {
+  FaTh,
+  FaKey,
+  FaListAlt,
+  FaTools
+}from "react-icons/fa";
+
 
 
 const Sidebar = forwardRef(({ showNav, setShowNav }, ref) => {
+  
+  const menuItem=[
+    {
+        path:"/dashboard",
+        name:"Dashboard",
+        icon:<FaTh/>
+    },
+    {
+        path:"/domain",
+        name:"Domain-Hosting",
+        icon:<FaListAlt/>
+    },
+    {
+        path:"/password",
+        name:"Şifreler",
+        icon:<FaKey/>
+    },
+    {
+        path:"/settings",
+        name:"Ayarlar",
+        icon:<FaTools/>
+    },
+    
+]
+
 
   return (
     <div ref={ref} className=" fixed md:static inset-y-0 left-0 bg-white w-64 px-8 py-6 border-r z-30 overflow-y-auto lg:translate-x-0 transform shadow-lg" >
@@ -19,27 +51,19 @@ const Sidebar = forwardRef(({ showNav, setShowNav }, ref) => {
       </div>
 
       <nav className="mt-8">
-        <h3 className="text-md font-semibold text-gray-600 uppercase ">
+        <h3 className="text-md font-semibold text-gray-900 uppercase ">
           Dashboard
         </h3>
-        <div className="mt-2 -mx-3">
-          <NavLink className="flex justify-between items-center px-3 py-2" to="/dashboard">
-            <span className="text-sm font-medium text-gray-700">Anasayfa</span>
-            {/* <span className="text-sm font-semibold text-gray-700">23</span> */}
-          </NavLink>
-          <NavLink className="flex justify-between items-center px-3 py-2 bg-gradient-to-r from-purple-700 to-blue-500 rounded" to="/domain">
-            <span className="text-sm font-medium text-white">Domain-Hosting</span>
-            {/* <span className="text-sm font-semibold text-gray-700">23</span> */}
-          </NavLink>
-          <NavLink className="flex justify-between items-center px-3 py-2" to="/password">
-            <span className="text-sm font-medium text-gray-700">Şifreler</span>
-            {/* <span className="text-sm font-semibold text-gray-700">23</span> */}
-          </NavLink>
-          <NavLink className="flex justify-between items-center px-3 py-2" to="/settings">
-            <span className="text-sm font-medium text-gray-700">Ayarlar</span>
-            {/* <span className="text-sm font-semibold text-gray-700">23</span> */}
-          </NavLink>
+        <div className="mt-6 -mx-3">
 
+          {
+          menuItem.map((item,index) =>(
+            <NavLink className="flex items-center px-3 py-2 text-gray-700" activeclassName="active" to={item.path}>
+           <span className="">{item.icon}</span>
+            <span className="text-sm font-medium  ml-4">{item.name}</span>
+          </NavLink>
+          ))
+          }
 
         </div>
 

@@ -1,0 +1,20 @@
+{
+    "domain": [
+      {
+        "id": "1",
+        "domain": "go to  market",
+        "hosting": "go to  market",
+        "note": "go to  market",
+        "registrationDate": "2023-05-01T11:31:49.866Z",
+        "endDate": "2023-05-01T11:31:49.866Z"
+      }
+    ],
+    "passwords": [
+        {
+          "id": "1",
+          "name": "go to  market",
+          "password": "go to  market"
+        }
+      ]
+
+  }

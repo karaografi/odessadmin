@@ -52,15 +52,7 @@ export default function Layout() {
     <div className='flex flex-col flex-1 min-w-0'>
     <Topbar showNav={showNav} setShowNav={setShowNav} />
     <Outlet />
-    {/* <Main className={`pt-16 transition-all duration-[400ms] ${
-          showNav && !isMobile ? "pl-56" : ""
-        }`}
-      >
-        <div className="px-4 md:px-16">
-            <Outlet />
-        </div>
 
-    </Main> */}
     </div>
 
     </div>
