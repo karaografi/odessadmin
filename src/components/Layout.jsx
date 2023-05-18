@@ -51,7 +51,18 @@ export default function Layout() {
     
     <div className='flex flex-col flex-1 min-w-0'>
     <Topbar showNav={showNav} setShowNav={setShowNav} />
-    <Outlet />
+
+    <div className='flex flex-col h-screen'>
+      <div className='flex-grow bg-gray-50'>
+        <div className='container mx-auto py-6 px-4'>
+          <div className="overflow-x-auto w-full">
+          <Outlet />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
 
     </div>
 

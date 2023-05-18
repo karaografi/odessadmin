@@ -4,7 +4,7 @@ const Topbar = ({ showNav, setShowNav }) => {
   return (
     <div>
             {/* Header */}
-    <header className="border-b flex flex-col px-6 border-gray-300">
+    <header className="border-b flex flex-col px-6 bg-white border-gray-300">
       <div className="flex justify-between py-3">
 
         <div className="flex items-center py-3">
@@ -48,7 +48,7 @@ const Topbar = ({ showNav, setShowNav }) => {
       </div>
 
       {/* HeaderBottom */}
-      <div className="flex justify-between items-center p-2">
+      {/* <div className="flex justify-between items-center p-2">
         <div className="sm:flex sm:items-center">
           <h2 className="text-lg font-medium text-gray-900">Assigness</h2>
           <div className="flex items-center ml-6">
@@ -82,7 +82,7 @@ const Topbar = ({ showNav, setShowNav }) => {
             <span className="ml-1">New Item</span>
           </button>
         </div>
-      </div>
+      </div> */}
     </header>
     </div>
   )

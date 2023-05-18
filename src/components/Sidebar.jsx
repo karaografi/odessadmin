@@ -4,36 +4,44 @@ import {
   FaTh,
   FaKey,
   FaListAlt,
-  FaTools
-}from "react-icons/fa";
+  FaTools,
+  FaBook,
+  FaUser
+} from "react-icons/fa";
 
 
 
 const Sidebar = forwardRef(({ showNav, setShowNav }, ref) => {
-  
-  const menuItem=[
+
+  const menuItem = [
     {
-        path:"/dashboard",
-        name:"Dashboard",
-        icon:<FaTh/>
+      path: "/dashboard",
+      name: "Dashboard",
+      icon: <FaTh />
     },
     {
-        path:"/domain",
-        name:"Domain-Hosting",
-        icon:<FaListAlt/>
+      path: "/domain",
+      name: "Domain-Hosting",
+      icon: <FaListAlt />
     },
     {
-        path:"/password",
-        name:"Şifreler",
-        icon:<FaKey/>
+      path: "/password",
+      name: "Şifreler",
+      icon: <FaKey />
     },
     {
-        path:"/settings",
-        name:"Ayarlar",
-        icon:<FaTools/>
+      path: "/course",
+      name: "Kurslar",
+      icon: <FaBook />
     },
-    
-]
+    {
+      path: "/settings",
+      name: "Ayarlar",
+      icon: <FaTools />
+    },
+
+
+  ]
 
 
   return (
@@ -57,12 +65,16 @@ const Sidebar = forwardRef(({ showNav, setShowNav }, ref) => {
         <div className="mt-6 -mx-3">
 
           {
-          menuItem.map((item,index) =>(
-            <NavLink className="flex items-center px-3 py-2 text-gray-700" activeclassName="active" to={item.path}>
-           <span className="">{item.icon}</span>
-            <span className="text-sm font-medium  ml-4">{item.name}</span>
-          </NavLink>
-          ))
+            menuItem.map((item, index) => (
+              <NavLink key={index} className="flex items-center px-3 py-2 text-gray-700" to={item.path}
+                activeStyle={isActive => (
+                  isActive ?? "active"
+                )}
+              >
+                <span className="">{item.icon}</span>
+                <span className="text-sm font-medium  ml-4">{item.name}</span>
+              </NavLink>
+            ))
           }
 
         </div>

@@ -3,14 +3,20 @@ import { Route, Routes, Navigate, BrowserRouter } from "react-router-dom";
 import Layout from "./components/Layout";
 import NotFound from "./screens/NotFound";
 import Passwords from "./screens/Passwords";
-import Domain from "./screens/Domain";
 import Settings from "./screens/Settings";
 import Dashboard from "./screens/Dashboard";
+import DomainScreen from "./screens/DomainScreen";
+import Courses from "./screens/Courses";
+
+
+const ROLES = {
+  'User': 2001,
+  'Editor': 1984,
+  'Admin': 5150
+}
 
 function App() {
-
   return (
-    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Navigate to="/dashboard" replace />} />
         <Route path="/auth/login" element={<Navigate to="/dashboard" replace />} />
@@ -19,13 +25,17 @@ function App() {
         <Route element={<Layout />}>
         <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/password" element={<Passwords />} />
-          <Route path="/domain" element={<Domain />} />
+          <Route path="/domain" element={<DomainScreen />} />
+          <Route path="/course" element={<Courses />} />
           <Route path="/settings" element={<Settings />} />
           ... other routes with layout ...
         </Route>
       </Routes>
-    </BrowserRouter>
   );
 }
+
+
+
+
 
 export default App;
