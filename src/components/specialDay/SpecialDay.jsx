@@ -1,40 +1,50 @@
 import React, { useState, useEffect } from 'react';
 import GetData from '../../hooks/getData';
+import axios from 'axios';
 
 const SpecialDaysCountdown = () => {
-     const specialDays = ['2023-05-19', '2023-07-15', '2023-09-10']; // Özel günlerin tarihlerini içeren dizi
-
-    const { data, error, loading } = GetData('https://testapi.odessayazilim.com/api/PublicHolidays?ticks=0&days=0&hours=0&milliseconds=0&minutes=0&seconds=0');
-      
-    // console.log("data : ",data.resmitatiller[0].gun);
-    
-    // const specialDays = data.resmitatiller;
-
+    const [specialDay, setSpecialDay] = useState(null);
     const [countdown, setCountdown] = useState(null);
-
+  
     useEffect(() => {
-        const today = new Date();
-        const specialDayDates = specialDays.map(day => new Date(day));
-        const nearestSpecialDay = specialDayDates.find(day => day > today);
-
-        if (nearestSpecialDay) {
-            const timeDifference = nearestSpecialDay.getTime() - today.getTime();
-            setCountdown(timeDifference);
+      const fetchSpecialDay = async () => {
+        try {
+          const response = await axios.get('https://testapi.odessayazilim.com/api/PublicHolidays?ticks=0&days=0&hours=0&milliseconds=0&minutes=0&seconds=0');
+          setSpecialDay(response.data.resmitatiller);
+        //   console.log(response.data.resmitatiller)
+        } catch (error) {
+          console.error('Error fetching special day:', error);
         }
+      };
+
+      fetchSpecialDay();
     }, []);
-
+  
     useEffect(() => {
-        let intervalId;
-
-        if (countdown) {
-            intervalId = setInterval(() => {
-                setCountdown(prevCountdown => prevCountdown - 1000);
-            }, 1000);
+      if (specialDay) {
+        const today = new Date();
+        const specialDayDate = new Date(specialDay[0].tarih);
+        // console.log("specialDay :",specialDay[0].tarih);
+  
+        if (specialDayDate > today) {
+          const timeDifference = specialDayDate.getTime() - today.getTime();
+          setCountdown(timeDifference);
         }
-
-        return () => {
-            clearInterval(intervalId);
-        };
+      }
+    }, [specialDay]);
+  
+    useEffect(() => {
+      let intervalId;
+  
+      if (countdown) {
+        intervalId = setInterval(() => {
+          setCountdown(prevCountdown => prevCountdown - 1000);
+        }, 1000);
+      }
+  
+      return () => {
+        clearInterval(intervalId);
+      };
     }, [countdown]);
 
     const formatCountdown = (countdown) => {
@@ -47,6 +57,7 @@ const SpecialDaysCountdown = () => {
 
         return (
             <div className="grid grid-flow-col gap-5 text-center auto-cols-max">
+                
                 <div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
                     <span className="countdown font-mono text-5xl">
                         <span style={{ "--value": `${days}` }}></span>
@@ -80,10 +91,36 @@ const SpecialDaysCountdown = () => {
 
     return (
         <div>
-            <h2>Önümüzdeki Özel Güne</h2>
-            <p>{formatCountdown(countdown)}</p>
-            <h2>Var</h2>
 
+
+<div className="flex justify-center items-center card w-full border shadow-md mb-8">
+  <div className="card-body flex flex-row md:flex-col sm:flex-col">
+    <h1 className="card-title mr-8 mb-5 sm:mr-0">{
+                specialDay ? (
+                    <h1 className='font-black text-lg'>{specialDay[0].gun}</h1>
+                    
+                ): (
+                    <p>Loading</p>
+                )
+
+            }</h1>
+    <p>{formatCountdown(countdown)}</p>
+    <div className="card-actions justify-end">
+      
+    </div>
+  </div>
+</div>
+
+            {/* {
+                specialDay ? (
+                    <h2>{specialDay[0].gun}</h2>
+                    
+                ): (
+                    <p>Loading</p>
+                )
+
+            } */}
+            
         </div>
     );
 };
