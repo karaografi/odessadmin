@@ -7,6 +7,7 @@ import Settings from "./screens/Settings";
 import Dashboard from "./screens/Dashboard";
 import DomainScreen from "./screens/DomainScreen";
 import Courses from "./screens/Courses";
+import Login from "./screens/Login";
 
 
 const ROLES = {
@@ -17,20 +18,23 @@ const ROLES = {
 
 function App() {
   return (
-      <Routes>
-        <Route path="/" element={<Navigate to="/dashboard" replace />} />
-        <Route path="/auth/login" element={<Navigate to="/dashboard" replace />} />
-        <Route path="*" element={<NotFound />} />
+    <Routes>
+      <Route path="/" element={<Navigate to="/dashboard" replace />} />
+        <Route path="/auth/login" element={<Login />} />
+
         ... other routes without layout ...
         <Route element={<Layout />}>
-        <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/password" element={<Passwords />} />
           <Route path="/domain" element={<DomainScreen />} />
           <Route path="/course" element={<Courses />} />
           <Route path="/settings" element={<Settings />} />
           ... other routes with layout ...
         </Route>
-      </Routes>
+
+        <Route path="*" element={<NotFound />} />
+      
+    </Routes>
   );
 }
 

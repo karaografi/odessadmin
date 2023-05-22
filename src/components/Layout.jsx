@@ -1,6 +1,5 @@
 import React,{useState,useEffect,Fragment} from 'react'
 import Sidebar from './Sidebar'
-import Main from './Main'
 import { Transition } from '@headlessui/react'
 import Topbar from './Topbar';
 import { Outlet } from 'react-router';
@@ -61,8 +60,6 @@ export default function Layout() {
         </div>
       </div>
     </div>
-
-    
 
     </div>
 

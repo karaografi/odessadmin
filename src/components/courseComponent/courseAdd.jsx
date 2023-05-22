@@ -85,7 +85,7 @@ const CourseAdd = () => {
                 <tr key={course.id}>
 
                   <td>
-                    {/* <div className="font-bold">{data.lenght}</div> */}
+                    
                     <div className="font-bold">{index + 1}</div>
                   </td>
 

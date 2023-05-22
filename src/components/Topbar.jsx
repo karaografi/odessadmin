@@ -47,42 +47,6 @@ const Topbar = ({ showNav, setShowNav }) => {
 
       </div>
 
-      {/* HeaderBottom */}
-      {/* <div className="flex justify-between items-center p-2">
-        <div className="sm:flex sm:items-center">
-          <h2 className="text-lg font-medium text-gray-900">Assigness</h2>
-          <div className="flex items-center ml-6">
-            <span className="border-2 border-white rounded-full">
-              <img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=144&h=144&q=80" alt="woman1" className="w-6 h-6 rounded-full object-cover" />
-            </span>
-
-            <span className="-ml-2 border-2 border-white rounded-full">
-              <img src="https://images.unsplash.com/photo-1592621385612-4d7129426394?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=40&h=40&q=80" alt="woman1" className="w-6 h-6 rounded-full object-cover" />
-            </span>
-
-            <span className="-ml-2 border-2 border-white rounded-full">
-              <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=40&h=40&q=80" alt="woman1" className="w-6 h-6 rounded-full object-cover" />
-            </span>
-
-            <span className="-ml-2 border-2 border-white rounded-full">
-              <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=40&h=40&q=80" alt="woman1" className="w-6 h-6 rounded-full object-cover" />
-            </span>
-
-          </div>
-        </div>
-
-        <div className="flex items-center">
-          <button className="flex pl-2 pr-4 py-2 ml-5 font-medium text-sm text-white hover:from-purple-600 hover:to-blue-400  rounded-md bg-gradient-to-r from-purple-700 to-blue-500 items-center">
-
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-            </svg>
-
-
-            <span className="ml-1">New Item</span>
-          </button>
-        </div>
-      </div> */}
     </header>
     </div>
   )
